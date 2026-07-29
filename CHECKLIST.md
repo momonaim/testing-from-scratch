@@ -8,47 +8,50 @@
 
 ## 📊 Vue d'ensemble
 
-| # | Étape | Statut | % Complété |
-|---|-------|--------|------------|
-| 01 | Prérequis & installation | 🔴 Non commencé | 0% |
-| 02 | Setup du projet | 🔴 Non commencé | 0% |
-| 03 | API CRUD (Spring Boot) | 🔴 Non commencé | 0% |
-| 04 | Tests API (Rest Assured) | 🔴 Non commencé | 0% |
-| 05 | UI (Thymeleaf) | 🔴 Non commencé | 0% |
-| 06 | Tests UI (Playwright/Selenium) | 🔴 Non commencé | 0% |
-| 07 | Dockerisation | 🔴 Non commencé | 0% |
-| 08 | Pipeline CI/CD (Jenkins) | 🔴 Non commencé | 0% |
+| #   | Étape                          | Statut          | % Complété |
+| --- | ------------------------------ | --------------- | ---------- |
+| 01  | Prérequis & installation       | � Terminé       | 100%       |
+| 02  | Setup du projet                | 🟡 En cours     | 70%        |
+| 03  | API CRUD (Spring Boot)         | 🔴 Non commencé | 0%         |
+| 04  | Tests API (Rest Assured)       | 🔴 Non commencé | 0%         |
+| 05  | UI (Thymeleaf)                 | 🔴 Non commencé | 0%         |
+| 06  | Tests UI (Playwright/Selenium) | 🔴 Non commencé | 0%         |
+| 07  | Dockerisation                  | 🔴 Non commencé | 0%         |
+| 08  | Pipeline CI/CD (Jenkins)       | 🔴 Non commencé | 0%         |
 
 **Légende :** 🔴 Non commencé · 🟡 En cours · 🟢 Terminé et validé
 
 ---
 
 ## 01 - Prérequis & Installation
-- [ ] Java 17+ installé et vérifié
-- [ ] Maven 3.8+ installé et vérifié
-- [ ] Git installé et configuré
-- [ ] Docker + Docker Compose installés et fonctionnels
-- [ ] IDE installé (IntelliJ / VS Code) avec plugins Java/Lombok
-- [ ] Node.js installé (si variante Playwright JS envisagée)
-- [ ] Jenkins installé et accessible
-- [ ] Navigateur(s) installés pour tests UI
-- [ ] Postman ou cURL disponible
+
+- [x] Java 17+ installé et vérifié
+- [x] Maven 3.8+ installé et vérifié
+- [x] Git installé et configuré
+- [x] Docker + Docker Compose installés et fonctionnels
+- [x] IDE installé (IntelliJ / VS Code) avec plugins Java/Lombok
+- [x] Node.js installé (si variante Playwright JS envisagée)
+- [x] Jenkins installé et accessible
+- [x] Navigateur(s) installés pour tests UI
+- [x] Postman ou cURL disponible
 
 ---
 
 ## 02 - Setup du projet
-- [ ] Projet généré via Spring Initializr
-- [ ] `pom.xml` vérifié (dépendances web, JPA, thymeleaf, h2, lombok)
-- [ ] Structure de dossiers créée (controller/model/repository/service)
-- [ ] `application.properties` configuré (H2 + console H2)
-- [ ] Classe principale vérifiée
-- [ ] Premier lancement réussi (`mvn spring-boot:run`)
-- [ ] Console H2 accessible
-- [ ] Dépôt Git initialisé + premier commit
+
+- [x] Projet généré via Spring Initializr
+- [x] `pom.xml` vérifié (dépendances web, JPA, thymeleaf, h2, lombok)
+- [x] Structure de dossiers créée (controller/model/repository/service)
+- [x] `application.properties` configuré (H2 + console H2)
+- [x] Classe principale vérifiée
+- [x] Premier lancement réussi (`mvn spring-boot:run`)
+- [x] Console H2 accessible
+- [x] Dépôt Git initialisé + premier commit
 
 ---
 
 ## 03 - API CRUD (Spring Boot)
+
 - [ ] Entité `Task` créée
 - [ ] `TaskRepository` créé
 - [ ] `TaskService` créé (logique métier isolée)
@@ -64,6 +67,7 @@
 ---
 
 ## 04 - Tests API (Rest Assured)
+
 - [ ] Dépendances Rest Assured ajoutées
 - [ ] Profil de test isolé configuré (`application-test.properties`)
 - [ ] Test CREATE écrit et vert
@@ -80,6 +84,7 @@
 ---
 
 ## 05 - UI (Thymeleaf)
+
 - [ ] `TaskWebController` créé (routes `/tasks`)
 - [ ] Template `tasks.html` (liste) créé
 - [ ] Template `task-form.html` (création/édition) créé
@@ -94,18 +99,22 @@
 ---
 
 ## 06 - Tests UI (Playwright & Selenium)
+
 ### Playwright
+
 - [ ] Dépendance ajoutée + navigateurs installés
 - [ ] Test création écrit et vert
 - [ ] Test édition écrit et vert
 - [ ] Test suppression écrit et vert
 
 ### Selenium
+
 - [ ] Dépendances ajoutées (selenium-java + webdrivermanager)
 - [ ] Test création écrit et vert
 - [ ] Test suppression écrit et vert
 
 ### Général
+
 - [ ] Les deux suites tournent en headless
 - [ ] Comparatif Playwright vs Selenium rédigé
 - [ ] Commit Git effectué
@@ -113,6 +122,7 @@
 ---
 
 ## 07 - Dockerisation
+
 - [ ] Dépendance PostgreSQL ajoutée
 - [ ] Profil `application-docker.properties` créé
 - [ ] `Dockerfile` multi-stage créé
@@ -127,6 +137,7 @@
 ---
 
 ## 08 - Pipeline CI/CD (Jenkins)
+
 - [ ] Projet poussé sur dépôt Git distant (GitHub/GitLab)
 - [ ] Plugins Jenkins installés (Git, Pipeline, Maven, Docker Pipeline, JUnit)
 - [ ] Outils globaux configurés (JDK 17, Maven)
@@ -155,6 +166,6 @@
 
 _(Notez ici tout point bloquant, question ouverte, ou décision technique à prendre)_
 
-- 
-- 
-- 
+-
+-
+-
