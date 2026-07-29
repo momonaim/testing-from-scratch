@@ -1,0 +1,160 @@
+# ✅ Checklist Globale - Task Manager Project
+
+> Mettez à jour ce fichier au fur et à mesure. Cochez `[x]` et changez le statut 🔴/🟡/🟢 après chaque session de travail.
+
+**Dernière mise à jour :** _(à compléter : JJ/MM/AAAA)_
+
+---
+
+## 📊 Vue d'ensemble
+
+| # | Étape | Statut | % Complété |
+|---|-------|--------|------------|
+| 01 | Prérequis & installation | 🔴 Non commencé | 0% |
+| 02 | Setup du projet | 🔴 Non commencé | 0% |
+| 03 | API CRUD (Spring Boot) | 🔴 Non commencé | 0% |
+| 04 | Tests API (Rest Assured) | 🔴 Non commencé | 0% |
+| 05 | UI (Thymeleaf) | 🔴 Non commencé | 0% |
+| 06 | Tests UI (Playwright/Selenium) | 🔴 Non commencé | 0% |
+| 07 | Dockerisation | 🔴 Non commencé | 0% |
+| 08 | Pipeline CI/CD (Jenkins) | 🔴 Non commencé | 0% |
+
+**Légende :** 🔴 Non commencé · 🟡 En cours · 🟢 Terminé et validé
+
+---
+
+## 01 - Prérequis & Installation
+- [ ] Java 17+ installé et vérifié
+- [ ] Maven 3.8+ installé et vérifié
+- [ ] Git installé et configuré
+- [ ] Docker + Docker Compose installés et fonctionnels
+- [ ] IDE installé (IntelliJ / VS Code) avec plugins Java/Lombok
+- [ ] Node.js installé (si variante Playwright JS envisagée)
+- [ ] Jenkins installé et accessible
+- [ ] Navigateur(s) installés pour tests UI
+- [ ] Postman ou cURL disponible
+
+---
+
+## 02 - Setup du projet
+- [ ] Projet généré via Spring Initializr
+- [ ] `pom.xml` vérifié (dépendances web, JPA, thymeleaf, h2, lombok)
+- [ ] Structure de dossiers créée (controller/model/repository/service)
+- [ ] `application.properties` configuré (H2 + console H2)
+- [ ] Classe principale vérifiée
+- [ ] Premier lancement réussi (`mvn spring-boot:run`)
+- [ ] Console H2 accessible
+- [ ] Dépôt Git initialisé + premier commit
+
+---
+
+## 03 - API CRUD (Spring Boot)
+- [ ] Entité `Task` créée
+- [ ] `TaskRepository` créé
+- [ ] `TaskService` créé (logique métier isolée)
+- [ ] `TaskController` créé (5 endpoints REST)
+- [ ] Gestion globale des erreurs (`GlobalExceptionHandler`)
+- [ ] Tests manuels cURL : POST ✅
+- [ ] Tests manuels cURL : GET all ✅
+- [ ] Tests manuels cURL : GET by id ✅
+- [ ] Tests manuels cURL : PUT ✅
+- [ ] Tests manuels cURL : DELETE ✅
+- [ ] Commit Git effectué
+
+---
+
+## 04 - Tests API (Rest Assured)
+- [ ] Dépendances Rest Assured ajoutées
+- [ ] Profil de test isolé configuré (`application-test.properties`)
+- [ ] Test CREATE écrit et vert
+- [ ] Test READ ALL écrit et vert
+- [ ] Test READ BY ID écrit et vert
+- [ ] Test 404 (id inconnu) écrit et vert
+- [ ] Test UPDATE écrit et vert
+- [ ] Test DELETE écrit et vert
+- [ ] Test de validation (titre manquant) décidé/écrit
+- [ ] `mvn test` en BUILD SUCCESS
+- [ ] Rapport de couverture JaCoCo généré (optionnel)
+- [ ] Commit Git effectué
+
+---
+
+## 05 - UI (Thymeleaf)
+- [ ] `TaskWebController` créé (routes `/tasks`)
+- [ ] Template `tasks.html` (liste) créé
+- [ ] Template `task-form.html` (création/édition) créé
+- [ ] Redirection racine `/` → `/tasks` (optionnel)
+- [ ] Test manuel navigateur : lister les tâches ✅
+- [ ] Test manuel navigateur : créer une tâche ✅
+- [ ] Test manuel navigateur : modifier une tâche ✅
+- [ ] Test manuel navigateur : supprimer une tâche ✅
+- [ ] Sélecteurs stables documentés (`.task-item`, `#title`, `#description`)
+- [ ] Commit Git effectué
+
+---
+
+## 06 - Tests UI (Playwright & Selenium)
+### Playwright
+- [ ] Dépendance ajoutée + navigateurs installés
+- [ ] Test création écrit et vert
+- [ ] Test édition écrit et vert
+- [ ] Test suppression écrit et vert
+
+### Selenium
+- [ ] Dépendances ajoutées (selenium-java + webdrivermanager)
+- [ ] Test création écrit et vert
+- [ ] Test suppression écrit et vert
+
+### Général
+- [ ] Les deux suites tournent en headless
+- [ ] Comparatif Playwright vs Selenium rédigé
+- [ ] Commit Git effectué
+
+---
+
+## 07 - Dockerisation
+- [ ] Dépendance PostgreSQL ajoutée
+- [ ] Profil `application-docker.properties` créé
+- [ ] `Dockerfile` multi-stage créé
+- [ ] `.dockerignore` créé
+- [ ] `docker build` réussi
+- [ ] `docker-compose.yml` créé (app + db + healthcheck + volume)
+- [ ] `docker compose up --build` fonctionne
+- [ ] Application accessible via `http://localhost:8080`
+- [ ] Persistance des données vérifiée (down/up sans `-v`)
+- [ ] Commit Git effectué
+
+---
+
+## 08 - Pipeline CI/CD (Jenkins)
+- [ ] Projet poussé sur dépôt Git distant (GitHub/GitLab)
+- [ ] Plugins Jenkins installés (Git, Pipeline, Maven, Docker Pipeline, JUnit)
+- [ ] Outils globaux configurés (JDK 17, Maven)
+- [ ] Credentials Docker Hub configurées
+- [ ] Credentials Git configurées (si repo privé)
+- [ ] `Jenkinsfile` créé et poussé
+- [ ] Job Pipeline créé dans Jenkins
+- [ ] Déclenchement automatique configuré (webhook ou polling)
+- [ ] Premier build manuel réussi (tous les stages verts)
+- [ ] Notifications configurées (email/Slack) - optionnel
+- [ ] Commit Git final effectué
+
+---
+
+## 🏁 Validation finale du projet
+
+- [ ] Toutes les étapes ci-dessus sont à 🟢
+- [ ] Le pipeline Jenkins tourne de bout en bout automatiquement sur un `git push`
+- [ ] L'application est déployée et accessible
+- [ ] Le README principal (`README.md`) est à jour et reflète l'état réel du projet
+- [ ] Une démonstration complète a été faite (screen recording ou live demo)
+
+---
+
+## 📝 Notes / Blocages en cours
+
+_(Notez ici tout point bloquant, question ouverte, ou décision technique à prendre)_
+
+- 
+- 
+- 
