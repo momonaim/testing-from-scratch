@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+
+    <title th:fragment="head(title)" th:text="${title}">Task Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+        }
+
+        .btn-danger {
+            background: #dc2626;
+        }
+
+        .btn-edit {
+            background: #f59e0b;
+        }
+
+        form.inline {
+            display: inline;
+        }
+    </style>
+</head>
+
+</html>
