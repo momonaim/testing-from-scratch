@@ -52,34 +52,34 @@
 
 ## 03 - API CRUD (Spring Boot)
 
-- [ ] Entité `Task` créée
-- [ ] `TaskRepository` créé
-- [ ] `TaskService` créé (logique métier isolée)
-- [ ] `TaskController` créé (5 endpoints REST)
-- [ ] Gestion globale des erreurs (`GlobalExceptionHandler`)
-- [ ] Tests manuels cURL : POST ✅
-- [ ] Tests manuels cURL : GET all ✅
-- [ ] Tests manuels cURL : GET by id ✅
-- [ ] Tests manuels cURL : PUT ✅
-- [ ] Tests manuels cURL : DELETE ✅
-- [ ] Commit Git effectué
+- [x] Entité `Task` créée
+- [x] `TaskRepository` créé
+- [x] `TaskService` créé (logique métier isolée)
+- [x] `TaskController` créé (5 endpoints REST)
+- [x] Gestion globale des erreurs (`GlobalExceptionHandler`)
+- [x] Tests manuels cURL : POST ✅
+- [x] Tests manuels cURL : GET all ✅
+- [x] Tests manuels cURL : GET by id ✅
+- [x] Tests manuels cURL : PUT ✅
+- [x] Tests manuels cURL : DELETE ✅
+- [x] Commit Git effectué
 
 ---
 
 ## 04 - Tests API (Rest Assured)
 
-- [ ] Dépendances Rest Assured ajoutées
-- [ ] Profil de test isolé configuré (`application-test.properties`)
-- [ ] Test CREATE écrit et vert
-- [ ] Test READ ALL écrit et vert
-- [ ] Test READ BY ID écrit et vert
-- [ ] Test 404 (id inconnu) écrit et vert
-- [ ] Test UPDATE écrit et vert
-- [ ] Test DELETE écrit et vert
-- [ ] Test de validation (titre manquant) décidé/écrit
-- [ ] `mvn test` en BUILD SUCCESS
-- [ ] Rapport de couverture JaCoCo généré (optionnel)
-- [ ] Commit Git effectué
+- [x] Dépendances Rest Assured ajoutées
+- [x] Profil de test isolé configuré (`application-test.properties`)
+- [x] Test CREATE écrit et vert
+- [x] Test READ ALL écrit et vert
+- [x] Test READ BY ID écrit et vert
+- [x] Test 404 (id inconnu) écrit et vert
+- [x] Test UPDATE écrit et vert
+- [x] Test DELETE écrit et vert
+- [x] Test de validation (titre manquant) décidé/écrit
+- [x] `mvn test` en BUILD SUCCESS
+- [x] Rapport de couverture JaCoCo généré (optionnel)
+- [x] Commit Git effectué
 
 ---
 
