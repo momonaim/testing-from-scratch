@@ -83,7 +83,7 @@
 
 ---
 
-## 05 - UI (Thymeleaf)
+## 05a - UI (Thymeleaf)
 
 - [x] `TaskWebController` créé (routes `/tasks`)
 - [x] Template `tasks.html` (liste) créé
@@ -95,6 +95,23 @@
 - [x] Test manuel navigateur : supprimer une tâche ✅
 - [x] Sélecteurs stables documentés (`.task-item`, `#title`, `#description`)
 - [x] Commit Git effectué
+
+---
+
+## 05b - UI (React)
+
+- [x] `CorsConfig` ajouté côté backend (autorise `http://localhost:5173`)
+- [x] Frontend scaffold (Vite + React) créé sous le dossier [frontend](frontend)
+- [x] `frontend/package.json` et scripts (`dev`, `build`, `preview`) ajoutés
+- [x] `frontend/.env` with `VITE_API_BASE_URL` ajouté
+- [x] `src/api/taskService.js` créé (centralise les appels API)
+- [x] Composants créés : `TaskForm`, `TaskItem`, `TaskList`
+- [x] `App.jsx` et styles `App.css` ajoutés
+- [x] Lancer `npm install` dans `frontend` et vérifier `npm run dev`
+- [x] Vérifier l'absence d'erreurs CORS dans le navigateur
+- [x] Vérifier les `data-testid` pour les tests UI React
+- [x] `npm run build` (production) sans erreur
+- [x] Commit Git effectué (frontend)
 
 ---
 

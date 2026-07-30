@@ -1,9 +1,11 @@
 # ⚛️ Étape 5 : Interface utilisateur (React)
 
 ## 🎯 Objectif
+
 Construire un frontend React (SPA) découplé du backend, qui consomme l'API REST Spring Boot via `fetch`/`axios`, avec les 4 opérations (lister, créer, modifier, supprimer).
 
 ## 📋 Pré-requis
+
 - Étape 3 validée (API REST CRUD fonctionnelle et testée via cURL)
 - Node.js 18+ et npm installés (étape 1)
 - CORS activé côté backend (voir section 5.2 ci-dessous - **obligatoire**, sinon le navigateur bloquera les appels)
@@ -89,18 +91,19 @@ Vider `src/App.css` et `src/index.css` (on les remplira à l'étape 5.7).
 Fichier : `frontend/src/api/taskService.js`
 
 ```javascript
-import axios from 'axios';
+import axios from "axios";
 
-const API_BASE_URL = 'http://localhost:8080/api/tasks';
+const API_BASE_URL = "http://localhost:8080/api/tasks";
 
 export const taskService = {
-  getAll: () => axios.get(API_BASE_URL).then(res => res.data),
+  getAll: () => axios.get(API_BASE_URL).then((res) => res.data),
 
-  getById: (id) => axios.get(`${API_BASE_URL}/${id}`).then(res => res.data),
+  getById: (id) => axios.get(`${API_BASE_URL}/${id}`).then((res) => res.data),
 
-  create: (task) => axios.post(API_BASE_URL, task).then(res => res.data),
+  create: (task) => axios.post(API_BASE_URL, task).then((res) => res.data),
 
-  update: (id, task) => axios.put(`${API_BASE_URL}/${id}`, task).then(res => res.data),
+  update: (id, task) =>
+    axios.put(`${API_BASE_URL}/${id}`, task).then((res) => res.data),
 
   delete: (id) => axios.delete(`${API_BASE_URL}/${id}`),
 };
@@ -113,17 +116,17 @@ export const taskService = {
 #### `frontend/src/components/TaskForm.jsx`
 
 ```jsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function TaskForm({ initialTask, onSubmit, onCancel }) {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
     if (initialTask) {
-      setTitle(initialTask.title || '');
-      setDescription(initialTask.description || '');
+      setTitle(initialTask.title || "");
+      setDescription(initialTask.description || "");
       setCompleted(initialTask.completed || false);
     }
   }, [initialTask]);
@@ -164,8 +167,12 @@ export default function TaskForm({ initialTask, onSubmit, onCancel }) {
       </label>
 
       <div>
-        <button type="submit" data-testid="task-submit-button">Enregistrer</button>
-        <button type="button" onClick={onCancel}>Annuler</button>
+        <button type="submit" data-testid="task-submit-button">
+          Enregistrer
+        </button>
+        <button type="button" onClick={onCancel}>
+          Annuler
+        </button>
       </div>
     </form>
   );
@@ -178,17 +185,24 @@ export default function TaskForm({ initialTask, onSubmit, onCancel }) {
 export default function TaskItem({ task, onEdit, onDelete }) {
   return (
     <tr className="task-item" data-testid="task-item">
-      <td className={task.completed ? 'completed' : ''} data-testid="task-title">
+      <td
+        className={task.completed ? "completed" : ""}
+        data-testid="task-title"
+      >
         {task.title}
       </td>
       <td data-testid="task-description">{task.description}</td>
-      <td data-testid="task-status">{task.completed ? '✅ Terminée' : '⏳ En cours'}</td>
+      <td data-testid="task-status">
+        {task.completed ? "✅ Terminée" : "⏳ En cours"}
+      </td>
       <td>
-        <button data-testid="task-edit-button" onClick={() => onEdit(task)}>Modifier</button>
+        <button data-testid="task-edit-button" onClick={() => onEdit(task)}>
+          Modifier
+        </button>
         <button
           data-testid="task-delete-button"
           onClick={() => {
-            if (window.confirm('Supprimer cette tâche ?')) {
+            if (window.confirm("Supprimer cette tâche ?")) {
               onDelete(task.id);
             }
           }}
@@ -204,7 +218,7 @@ export default function TaskItem({ task, onEdit, onDelete }) {
 #### `frontend/src/components/TaskList.jsx`
 
 ```jsx
-import TaskItem from './TaskItem';
+import TaskItem from "./TaskItem";
 
 export default function TaskList({ tasks, onEdit, onDelete }) {
   if (tasks.length === 0) {
@@ -223,7 +237,12 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
       </thead>
       <tbody>
         {tasks.map((task) => (
-          <TaskItem key={task.id} task={task} onEdit={onEdit} onDelete={onDelete} />
+          <TaskItem
+            key={task.id}
+            task={task}
+            onEdit={onEdit}
+            onDelete={onDelete}
+          />
         ))}
       </tbody>
     </table>
@@ -238,11 +257,11 @@ export default function TaskList({ tasks, onEdit, onDelete }) {
 Fichier : `frontend/src/App.jsx`
 
 ```jsx
-import { useState, useEffect } from 'react';
-import { taskService } from './api/taskService';
-import TaskList from './components/TaskList';
-import TaskForm from './components/TaskForm';
-import './App.css';
+import { useState, useEffect } from "react";
+import { taskService } from "./api/taskService";
+import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm";
+import "./App.css";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -306,7 +325,10 @@ export default function App() {
         <TaskForm
           initialTask={editingTask}
           onSubmit={handleSubmit}
-          onCancel={() => { setShowForm(false); setEditingTask(null); }}
+          onCancel={() => {
+            setShowForm(false);
+            setEditingTask(null);
+          }}
         />
       )}
 
@@ -316,23 +338,53 @@ export default function App() {
 }
 ```
 
-- [ ] Fichier créé - gère l'état global (liste, formulaire, erreurs)
+- [x] Fichier créé - gère l'état global (liste, formulaire, erreurs)
 
 ### 5.8 Ajouter un minimum de style
 
 Fichier : `frontend/src/App.css`
 
 ```css
-.container { max-width: 800px; margin: 40px auto; font-family: Arial, sans-serif; }
-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-th, td { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
-.completed { text-decoration: line-through; color: #888; }
-button { padding: 6px 12px; margin-right: 6px; border-radius: 4px; border: none; cursor: pointer; }
-.error { color: #dc2626; }
-form { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; max-width: 400px; }
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+button {
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+.error {
+  color: #dc2626;
+}
+form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
 ```
 
-- [ ] Fichier créé
+- [x] Fichier créé
 
 ### 5.9 Lancer le frontend en mode dev
 
@@ -344,41 +396,45 @@ cd backend && mvn spring-boot:run
 cd frontend && npm run dev
 ```
 
-- [ ] Frontend accessible sur `http://localhost:5173`
-- [ ] La liste des tâches se charge (appel réussi vers `http://localhost:8080/api/tasks`)
-- [ ] Aucune erreur CORS dans la console du navigateur
+- [x] Frontend accessible sur `http://localhost:5173`
+- [x] La liste des tâches se charge (appel réussi vers `http://localhost:8080/api/tasks`)
+- [x] Aucune erreur CORS dans la console du navigateur
 
 ### 5.10 Tests manuels dans le navigateur
 
-- [ ] Cliquer "+ Nouvelle tâche" ouvre le formulaire
-- [ ] Créer une tâche → apparaît dans la liste
-- [ ] Cliquer "Modifier" → formulaire pré-rempli → sauvegarder → changement visible
-- [ ] Cliquer "Supprimer" → confirmation → la tâche disparaît
+- [x] Cliquer "+ Nouvelle tâche" ouvre le formulaire
+- [x] Créer une tâche → apparaît dans la liste
+- [x] Cliquer "Modifier" → formulaire pré-rempli → sauvegarder → changement visible
+- [x] Cliquer "Supprimer" → confirmation → la tâche disparaît
 
 ### 5.11 Variables d'environnement (bonnes pratiques)
 
 Fichier : `frontend/.env`
+
 ```
 VITE_API_BASE_URL=http://localhost:8080/api/tasks
 ```
 
 Mettre à jour `taskService.js` :
+
 ```javascript
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api/tasks';
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:8080/api/tasks";
 ```
 
-- [ ] Variable d'environnement utilisée (facilite le passage en prod/Docker plus tard)
+- [x] Variable d'environnement utilisée (facilite le passage en prod/Docker plus tard)
 
 ### 5.12 Commit Git
 
 ```bash
 git add .
-git commit -m "feat: interface React (liste, creation, edition, suppression)"
+git commit -m "05b: feat: interface React (liste, creation, edition, suppression)"
 ```
 
 ---
 
 ## 📁 Fichiers créés/modifiés
+
 ```
 backend/src/main/java/com/example/taskmanager/config/CorsConfig.java
 frontend/package.json
@@ -395,23 +451,24 @@ frontend/src/App.css
 
 ## ✅ Critères de validation de l'étape
 
-- [ ] Les 4 opérations CRUD fonctionnent depuis l'interface React
-- [ ] Aucune erreur CORS
-- [ ] Les attributs `data-testid` sont en place sur tous les éléments interactifs (nécessaires pour l'étape 6)
-- [ ] `npm run build` génère un build de production sans erreur (`frontend/dist/`)
+- [x] Les 4 opérations CRUD fonctionnent depuis l'interface React
+- [x] Aucune erreur CORS
+- [x] Les attributs `data-testid` sont en place sur tous les éléments interactifs (nécessaires pour l'étape 6)
+- [x] `npm run build` génère un build de production sans erreur (`frontend/dist/`)
 
 ---
 
 ## ⚠️ Pièges courants
 
-| Problème | Solution |
-|---|---|
-| Erreur CORS dans la console | Vérifier `CorsConfig.java` et que l'origine autorisée correspond exactement au port du serveur Vite (`5173` par défaut) |
-| `Network Error` sur les appels axios | Vérifier que le backend tourne bien sur le port 8080 et que `VITE_API_BASE_URL` est correct |
-| État de la liste non rafraîchi après création/suppression | Toujours rappeler `loadTasks()` après chaque opération d'écriture |
-| Checkbox "Terminée" non réactive | Vérifier que `checked` est bien contrôlé par le state React (`completed`) et non par un attribut HTML statique |
+| Problème                                                  | Solution                                                                                                                |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Erreur CORS dans la console                               | Vérifier `CorsConfig.java` et que l'origine autorisée correspond exactement au port du serveur Vite (`5173` par défaut) |
+| `Network Error` sur les appels axios                      | Vérifier que le backend tourne bien sur le port 8080 et que `VITE_API_BASE_URL` est correct                             |
+| État de la liste non rafraîchi après création/suppression | Toujours rappeler `loadTasks()` après chaque opération d'écriture                                                       |
+| Checkbox "Terminée" non réactive                          | Vérifier que `checked` est bien contrôlé par le state React (`completed`) et non par un attribut HTML statique          |
 
 ---
 
 ## ➡️ Prochaine étape
+
 `06-TESTS-UI-PLAYWRIGHT-SELENIUM.md` - Automatiser les tests de cette interface React
