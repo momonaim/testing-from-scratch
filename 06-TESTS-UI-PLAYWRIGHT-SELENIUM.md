@@ -1,9 +1,11 @@
 # 🤖 Étape 6 : Tests UI avec Playwright et Selenium
 
 ## 🎯 Objectif
+
 Automatiser les scénarios utilisateur clés (création, modification, suppression de tâche) avec **deux** frameworks différents, afin de comparer leur ergonomie et fiabilité.
 
 ## 📋 Pré-requis
+
 - Étape 5 validée (interface web fonctionnelle avec sélecteurs stables)
 
 ---
@@ -15,6 +17,7 @@ Automatiser les scénarios utilisateur clés (création, modification, suppressi
 ### A.1 Ajouter la dépendance
 
 Dans `pom.xml` :
+
 ```xml
 <dependency>
     <groupId>com.microsoft.playwright</groupId>
@@ -24,7 +27,7 @@ Dans `pom.xml` :
 </dependency>
 ```
 
-- [ ] Dépendance ajoutée
+- [x] Dépendance ajoutée
 
 ### A.2 Installer les navigateurs Playwright
 
@@ -33,7 +36,7 @@ mvn compile
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
 ```
 
-- [ ] Chromium/Firefox/WebKit installés sans erreur
+- [x] Chromium/Firefox/WebKit installés sans erreur
 
 ### A.3 Écrire le test de création
 
@@ -131,7 +134,7 @@ public class TaskUiPlaywrightTest {
 }
 ```
 
-- [ ] Les 3 tests (créer, modifier, supprimer) sont écrits
+- [x] Les 3 tests (créer, modifier, supprimer) sont écrits
 
 ### A.4 Exécuter les tests Playwright
 
@@ -139,7 +142,7 @@ public class TaskUiPlaywrightTest {
 mvn test -Dtest=TaskUiPlaywrightTest
 ```
 
-- [ ] Tous les tests passent en mode headless
+- [x] Tous les tests passent en mode headless
 
 ---
 
@@ -162,7 +165,7 @@ mvn test -Dtest=TaskUiPlaywrightTest
 </dependency>
 ```
 
-- [ ] Dépendances ajoutées
+- [x] Dépendances ajoutées
 
 ### B.2 Écrire le test de création
 
@@ -241,7 +244,7 @@ public class TaskUiSeleniumTest {
 }
 ```
 
-- [ ] Les 2 tests (créer, supprimer) sont écrits
+- [x] Les 2 tests (créer, supprimer) sont écrits
 
 ### B.3 Exécuter les tests Selenium
 
@@ -249,22 +252,22 @@ public class TaskUiSeleniumTest {
 mvn test -Dtest=TaskUiSeleniumTest
 ```
 
-- [ ] Tous les tests passent en mode headless
+- [x] Tous les tests passent en mode headless
 
 ---
 
 ### C. Comparatif Playwright vs Selenium (à documenter dans votre rendu)
 
-| Critère | Playwright | Selenium |
-|---|---|---|
-| Vitesse d'exécution | Plus rapide (protocole natif CDP) | Plus lent (protocole WebDriver W3C) |
-| Attente automatique (auto-wait) | Oui, natif | Non, nécessite des `WebDriverWait` explicites |
-| Gestion des dialogues JS | `page.onDialog()` simple | `driver.switchTo().alert()` |
-| Setup des drivers | Géré automatiquement | Nécessite WebDriverManager |
-| Maturité écosystème | Plus récent | Très mature, large communauté |
-| Support multi-navigateurs | Chromium, Firefox, WebKit | Chrome, Firefox, Edge, Safari |
+| Critère                         | Playwright                        | Selenium                                      |
+| ------------------------------- | --------------------------------- | --------------------------------------------- |
+| Vitesse d'exécution             | Plus rapide (protocole natif CDP) | Plus lent (protocole WebDriver W3C)           |
+| Attente automatique (auto-wait) | Oui, natif                        | Non, nécessite des `WebDriverWait` explicites |
+| Gestion des dialogues JS        | `page.onDialog()` simple          | `driver.switchTo().alert()`                   |
+| Setup des drivers               | Géré automatiquement              | Nécessite WebDriverManager                    |
+| Maturité écosystème             | Plus récent                       | Très mature, large communauté                 |
+| Support multi-navigateurs       | Chromium, Firefox, WebKit         | Chrome, Firefox, Edge, Safari                 |
 
-- [ ] Section comparative rédigée dans le README ou un fichier dédié
+- [x] Section comparative rédigée dans le README ou un fichier dédié
 
 ### D. Commit Git
 
@@ -276,6 +279,7 @@ git commit -m "test: automatisation UI avec Playwright et Selenium"
 ---
 
 ## 📁 Fichiers créés/modifiés
+
 ```
 src/test/java/com/example/taskmanager/ui/TaskUiPlaywrightTest.java
 src/test/java/com/example/taskmanager/ui/TaskUiSeleniumTest.java
@@ -286,24 +290,25 @@ pom.xml (dépendances playwright, selenium-java, webdrivermanager)
 
 ## ✅ Critères de validation de l'étape
 
-- [ ] Tests Playwright : création, édition, suppression - tous verts
-- [ ] Tests Selenium : création, suppression - tous verts
-- [ ] Les deux suites tournent en mode headless (compatible CI/CD)
-- [ ] Comparatif rédigé
+- [x] Tests Playwright : création, édition, suppression - tous verts
+- [x] Tests Selenium : création, suppression - tous verts
+- [x] Les deux suites tournent en mode headless (compatible CI/CD)
+- [x] Comparatif rédigé
 
 ---
 
 ## ⚠️ Pièges courants
 
-| Problème | Solution |
-|---|---|
-| `NoSuchElementException` immédiat avec Selenium | Ajouter un `WebDriverWait` explicite au lieu de dépendre uniquement de l'implicit wait |
-| Popup `confirm()` bloque Selenium | Utiliser `driver.switchTo().alert().accept()` juste après le clic |
-| Playwright : navigateurs non installés en CI | Ajouter l'étape d'installation (`playwright install --with-deps`) dans le pipeline Jenkins |
-| Tests UI lents/instables | Toujours utiliser des attentes explicites sur les éléments plutôt que des `Thread.sleep()` |
-| Port aléatoire (`RANDOM_PORT`) mais IP figée en dur | Toujours construire l'URL avec `"http://localhost:" + port` |
+| Problème                                            | Solution                                                                                   |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `NoSuchElementException` immédiat avec Selenium     | Ajouter un `WebDriverWait` explicite au lieu de dépendre uniquement de l'implicit wait     |
+| Popup `confirm()` bloque Selenium                   | Utiliser `driver.switchTo().alert().accept()` juste après le clic                          |
+| Playwright : navigateurs non installés en CI        | Ajouter l'étape d'installation (`playwright install --with-deps`) dans le pipeline Jenkins |
+| Tests UI lents/instables                            | Toujours utiliser des attentes explicites sur les éléments plutôt que des `Thread.sleep()` |
+| Port aléatoire (`RANDOM_PORT`) mais IP figée en dur | Toujours construire l'URL avec `"http://localhost:" + port`                                |
 
 ---
 
 ## ➡️ Prochaine étape
+
 `07-DOCKER.md` - Conteneuriser l'application

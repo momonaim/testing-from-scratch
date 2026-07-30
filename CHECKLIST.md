@@ -85,16 +85,16 @@
 
 ## 05 - UI (Thymeleaf)
 
-- [ ] `TaskWebController` créé (routes `/tasks`)
-- [ ] Template `tasks.html` (liste) créé
-- [ ] Template `task-form.html` (création/édition) créé
-- [ ] Redirection racine `/` → `/tasks` (optionnel)
-- [ ] Test manuel navigateur : lister les tâches ✅
-- [ ] Test manuel navigateur : créer une tâche ✅
-- [ ] Test manuel navigateur : modifier une tâche ✅
-- [ ] Test manuel navigateur : supprimer une tâche ✅
-- [ ] Sélecteurs stables documentés (`.task-item`, `#title`, `#description`)
-- [ ] Commit Git effectué
+- [x] `TaskWebController` créé (routes `/tasks`)
+- [x] Template `tasks.html` (liste) créé
+- [x] Template `task-form.html` (création/édition) créé
+- [x] Redirection racine `/` → `/tasks` (optionnel)
+- [x] Test manuel navigateur : lister les tâches ✅
+- [x] Test manuel navigateur : créer une tâche ✅
+- [x] Test manuel navigateur : modifier une tâche ✅
+- [x] Test manuel navigateur : supprimer une tâche ✅
+- [x] Sélecteurs stables documentés (`.task-item`, `#title`, `#description`)
+- [x] Commit Git effectué
 
 ---
 
@@ -102,22 +102,22 @@
 
 ### Playwright
 
-- [ ] Dépendance ajoutée + navigateurs installés
-- [ ] Test création écrit et vert
-- [ ] Test édition écrit et vert
-- [ ] Test suppression écrit et vert
+- [x] Dépendance ajoutée + navigateurs installés
+- [x] Test création écrit et vert
+- [x] Test édition écrit et vert
+- [x] Test suppression écrit et vert
 
 ### Selenium
 
-- [ ] Dépendances ajoutées (selenium-java + webdrivermanager)
-- [ ] Test création écrit et vert
-- [ ] Test suppression écrit et vert
+- [x] Dépendances ajoutées (selenium-java + webdrivermanager)
+- [x] Test création écrit et vert
+- [x] Test suppression écrit et vert
 
 ### Général
 
-- [ ] Les deux suites tournent en headless
-- [ ] Comparatif Playwright vs Selenium rédigé
-- [ ] Commit Git effectué
+- [x] Les deux suites tournent en headless
+- [x] Comparatif Playwright vs Selenium rédigé
+- [x] Commit Git effectué
 
 ---
 
