@@ -138,6 +138,39 @@
 
 ---
 
+## 06b - Tests UI React (Playwright & Selenium)
+
+### Préparation
+
+- [x] Frontend React expose les `data-testid` requis
+- [x] Dossier `e2e-tests/` créé à la racine du repo
+- [x] Frontend et backend lancés sur `http://localhost:5173` et `http://localhost:8080`
+
+### Playwright React
+
+- [x] `e2e-tests/package.json` créé
+- [x] `e2e-tests/playwright.config.js` configuré
+- [x] Test création React écrit
+- [x] Test modification React écrit
+- [x] Test suppression React écrit
+- [x] Test statut React écrit
+- [x] Suite Playwright exécutée avec succès
+
+### Selenium React
+
+- [x] Dépendances Selenium déjà présentes côté backend
+- [x] `TaskUiSeleniumReactTest` créé
+- [x] Test création React écrit
+- [x] Test suppression React écrit
+- [x] Suite Selenium exécutée avec succès
+
+### Général
+
+- [x] Comparatif Playwright vs Selenium pour React rédigé
+- [x] Commit Git effectué
+
+---
+
 ## 07 - Dockerisation
 
 - [ ] Dépendance PostgreSQL ajoutée
